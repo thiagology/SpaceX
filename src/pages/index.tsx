@@ -1,13 +1,16 @@
-type IndexProps = {
-  user: string;
-}
+import Card from "../components/Card";
+import { Container, Columns } from 'react-bulma-components';
 
-const Index: React.FC<IndexProps> = ( {user} ) =>  {
-  return (
-      <div>
-          Index
-      </div>
-  )
-}
+const Index = () => <Container>
+  <Columns style={{marginTop: 4}}>
+    <Columns.Column>
+      <Card />
+    </Columns.Column>
+    <Columns.Column>
+      <Card />
+    </Columns.Column>
+  </Columns>
+
+</Container>
 
 export default Index
