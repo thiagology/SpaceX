@@ -31,7 +31,7 @@ const Index = () => {
       <Columns style={{ marginTop: 40 }}>
         {launches.slice(0, 12).map((launch) => (
           <Columns.Column key={launch.id} size={4}>
-            <Card 
+            <Card
              onClick={() => router.push(`/launch/${launch.id}`)}
              title={launch.mission_name}
              avatar={launch.links.mission_patch_small}

@@ -15,8 +15,8 @@ const Page: React.FC<PageProps> = ({
     <div className="bg_image">
 
     <Container >
-      <Box>
-        <Heading>{title}</Heading>
+      <Box >
+        <Heading >{title}</Heading>
         <Heading subtitle size={6}>
           {description}
         </Heading>

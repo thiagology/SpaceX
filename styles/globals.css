@@ -24,6 +24,12 @@ a {
 
 .cardStyle{
   border-radius: 10px;
+  max-width: 32px;
+  max-height: 450px;
+  overflow-y: scroll;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  
 }
 
 .loadingStyle{
