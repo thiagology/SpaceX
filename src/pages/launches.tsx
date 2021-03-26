@@ -1,4 +1,4 @@
-function Launches() {
+const Launches = () => {
     return (
         <div>
             Launches
@@ -6,4 +6,4 @@ function Launches() {
     )
 }
 
-export default Launches
+export default Launches;
