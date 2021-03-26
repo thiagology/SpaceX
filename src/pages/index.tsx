@@ -3,10 +3,12 @@ import { Container, Columns } from 'react-bulma-components';
 import { useQuery } from '@apollo/client'; // para graphql
 import { getLaunches } from '../graphql/queries';
 import { QueryInterface } from '../interfaces';
+import { useRouter } from "next/router";
 
 
 const Index = () => {
   const { data, error, loading } = useQuery<QueryInterface>(getLaunches); //query para dados da spacex
+  const router = useRouter();
   
   const launches = data?.launches ?? [] // null or undefined
   
@@ -24,7 +26,9 @@ const Index = () => {
       <Columns style={{ marginTop: 40 }}>
         {launches.map((launch) => (
           <Columns.Column key={launch.id} size={4}>
-            <Card title={launch.mission_name}
+            <Card 
+             onClick={() => router.push(`/launch/${launch.id}`)}
+             title={launch.mission_name}
              avatar={launch.links.mission_patch_small}
              image_placeholder={launch.links.mission_patch}
              description={launch.details}

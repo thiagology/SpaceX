@@ -14,4 +14,8 @@ type Launch = {
     launches: Launch[]
   }
 
-export type { Launch, QueryInterface};
+  type getLaunchResponse = {
+    launch: Launch
+  }
+
+export type { Launch, QueryInterface, getLaunchResponse};
