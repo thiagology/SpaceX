@@ -1,12 +1,16 @@
-import React from 'react';
-import { Card } from 'react-bulma-components';
+import React from "react";
+
+import { Loader } from "react-bulma-components";
 
 export default function Loading() {
-    return (
-        <Card>
-            <h1>Loading</h1>
-            <Card.Image scr='../images/rocket_launch.gif'>
-            </Card.Image>
-        </Card>
-    )
+  return (
+    <Loader className="loader-override"
+      style={{
+        width: 300,
+        height: 300,
+        borderTopColor: "transparent",
+        borderRightColor: "transparent",
+      }}
+    />
+  );
 }

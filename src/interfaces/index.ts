@@ -1,4 +1,4 @@
-type Launch = {
+export type Launch = {
     id: string;
     mission_name: string;
     details: string;
@@ -10,12 +10,17 @@ type Launch = {
   
   }
   
-  type QueryInterface = {
+  export type QueryInterface = {
     launches: Launch[]
   }
 
-  type getLaunchResponse = {
+  export type getLaunchResponse = {
     launch: Launch
   }
 
-export type { Launch, QueryInterface, getLaunchResponse};
+  export type PageProps = {
+    title: string;
+    description: string;
+    onClickBack?: () => void;
+    loading?: boolean;
+  };

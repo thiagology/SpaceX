@@ -1,18 +1,30 @@
-import React from 'react'
+import React from "react";
+import { Box, Heading, Container, Button } from "react-bulma-components";
+import Loading from "../components/Loading";
+import { PageProps } from "../interfaces";
 
-type PageProps = {
-    title: string;
-    description: string;
-}
 
-const Page: React.FC<PageProps> = ({title, description, children}) => {
-    return (
-        <div>
-            <h1>{title}</h1>
-            <p>{description}</p>
-            <p>{children}</p>
-        </div>
-    )
-}
+const Page: React.FC<PageProps> = ({
+  title,
+  description,
+  onClickBack,
+  loading,
+  children,
+}) => {
+  return (
+    <Container style={{ marginTop: 40 }}>
+      <Box>
+        <Heading>{title}</Heading>
+        <Heading subtitle size={6}>
+          {description}
+        </Heading>
+
+        {onClickBack && <Button onClick={onClickBack}>Back</Button>}
+      </Box>
+
+      {loading ? <Loading /> : children}
+    </Container>
+  );
+};
 
 export default Page;
