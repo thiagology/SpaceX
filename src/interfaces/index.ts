@@ -10,11 +10,11 @@ export type Launch = {
   
   }
   
-  export type QueryInterface = {
+  export type LaunchesProps = {
     launches: Launch[]
   }
 
-  export type getLaunchResponse = {
+  export type LaunchProps = {
     launch: Launch
   }
 
@@ -23,4 +23,11 @@ export type Launch = {
     description: string;
     onClickBack?: () => void;
     loading?: boolean;
+  };
+
+  export type MetaProps = {
+    title?: string;
+    description?: string;
+    url?: string;
+    url_image?: string;
   };

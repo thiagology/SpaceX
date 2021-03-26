@@ -1,27 +1,22 @@
-import Card from "../components/Card";
-import { Columns } from 'react-bulma-components';
-import { useQuery } from '@apollo/client'; // para graphql
-import { getLaunches } from '../graphql/queries';
-import { QueryInterface } from '../interfaces';
-import { useRouter } from "next/router";
-import Page from "../components/Page";
 import Head from 'next/head';
+import { GetStaticProps } from "next";
+import { useRouter } from "next/router";
+import { Columns } from 'react-bulma-components';
+import apolloClient from "../graphql/apolloClient";
+import { getLaunches } from '../graphql/queries';
+import { LaunchesProps } from '../interfaces';
+import Page from "../components/Page";
+import Card from "../components/Card";
 
 
-const Index = () => {
-  const { data, error, loading } = useQuery<QueryInterface>(getLaunches); //query para dados da spacex
+
+const Index: React.FC<LaunchesProps> = ({launches}) => {
+ 
   const router = useRouter();
-  
-  const launches = data?.launches ?? [] // null or undefined
-
-  if(error){
-    return <div>{error}</div>
-  }
-
 
   return (
     
-    <Page title="Launches" description="SpaceX Launches" loading={loading}>
+    <Page title="Launches" description="SpaceX Launches">
 
       <Head>
         <title>SpaceX Launches</title>
@@ -43,6 +38,26 @@ const Index = () => {
       </Columns>
     </Page>
   )
-}
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data, error } = await apolloClient.query({
+    query: getLaunches,
+  });
+
+  if (error) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const launches = data.launches;
+
+  return {
+    props: {
+      launches,
+    },
+  };
+};
 
 export default Index;
