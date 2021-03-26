@@ -12,7 +12,9 @@ const Page: React.FC<PageProps> = ({
   children,
 }) => {
   return (
-    <Container style={{ marginTop: 40 }}>
+    <div className="bg_image">
+
+    <Container >
       <Box>
         <Heading>{title}</Heading>
         <Heading subtitle size={6}>
@@ -24,6 +26,8 @@ const Page: React.FC<PageProps> = ({
 
       {loading ? <Loading /> : children}
     </Container>
+
+    </div>
   );
 };
 

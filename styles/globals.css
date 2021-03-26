@@ -17,3 +17,15 @@ a {
 .titulo{
   cursor: pointer;
 }
+
+.bg_image{
+  background-image: url('../src/images/pattern.jpg');
+}
+
+.cardStyle{
+  border-radius: 10px;
+}
+
+.loadingStyle{
+  background-image: url('../src/images/rocket_launch.gif');
+}

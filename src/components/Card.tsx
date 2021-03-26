@@ -21,8 +21,8 @@ const CardComponent: React.FC<CardComponentProps> = ({
   timestamp,
   onClick }) => {
   return (
-    <Card>
-      <Card.Image size="4by3" src={image_placeholder} />
+    <Card className="cardStyle">
+      <Card.Image size="4by3" src={image_placeholder}/>
       <Card.Content>
         <Media>
           <Media.Item renderAs="figure" position="left">

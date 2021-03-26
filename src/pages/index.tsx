@@ -5,6 +5,7 @@ import { getLaunches } from '../graphql/queries';
 import { QueryInterface } from '../interfaces';
 import { useRouter } from "next/router";
 import Page from "../components/Page";
+import Head from 'next/head';
 
 
 const Index = () => {
@@ -19,7 +20,14 @@ const Index = () => {
 
 
   return (
-    <Page title="Launches" description="SpaceX Launches" loading={loading} >
+    
+    <Page title="Launches" description="SpaceX Launches" loading={loading}>
+
+      <Head>
+        <title>SpaceX Launches</title>
+        <meta name="description" content="lançamento"></meta>
+      </Head>
+
       <Columns style={{ marginTop: 40 }}>
         {launches.slice(0, 12).map((launch) => (
           <Columns.Column key={launch.id} size={4}>
