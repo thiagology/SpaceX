@@ -16,7 +16,7 @@ const Index: React.FC<LaunchesProps> = ({launches}) => {
 
   return (
     
-    <Page title="Launches" description="SpaceX Launches">
+    <Page title="Launches" description="Lançamentos da SpaceX">
 
       <Head>
         <title>SpaceX Launches</title>

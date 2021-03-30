@@ -1,6 +1,9 @@
 import React from 'react';
 import { Card, Media, Content, Heading, Image } from 'react-bulma-components';
-
+import {
+  parseISO,
+  format
+} from 'date-fns';
 
 type CardComponentProps = { // tipo das props de card
   image_placeholder?: string;
@@ -22,7 +25,7 @@ const CardComponent: React.FC<CardComponentProps> = ({
   onClick }) => {
   return (
     <Card className="cardStyle">
-      <Card.Image size="4by3" src={image_placeholder}/>
+      <Card.Image size="4by3" src={image_placeholder} />
       <Card.Content>
         <Media>
           <Media.Item renderAs="figure" position="left">
@@ -32,14 +35,15 @@ const CardComponent: React.FC<CardComponentProps> = ({
             <Heading className='titulo'
               size={4}
               onClick={onClick}
-              
+
             >{title}</Heading>
             <Heading subtitle size={6}>{subtitle}</Heading>
           </Media.Item>
         </Media>
         <Content>
-          {description}
-          <time dateTime="2016-1-1">{timestamp}</time>
+          {description}<br/>
+          <time dateTime="2016-1-1">{format(parseISO(timestamp),
+            " MMMM dd'th' 'of' yyyy, HH:mm'.'")}</time>
         </Content>
       </Card.Content>
     </Card>

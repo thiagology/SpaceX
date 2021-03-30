@@ -19,8 +19,8 @@ import Loading from '../../components/Loading';
 
   return (
     <Page title={`Launch #${launch.id}`}
-      description="SpaceX"
-      onClickBack={() => router.back()}>
+      description="SpaceX launches"
+      onClickBack={() => router.push(`/`)}>
 
       <Meta
         title={launch.mission_name}
